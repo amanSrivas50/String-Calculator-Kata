@@ -17,5 +17,11 @@ describe('without delimiter', () => {
         result = StringCalculator.add(input);
         expect(result).toBe(1);
     })
+
+    it('multiple input', () => {
+        input = '1,5';
+        result = StringCalculator.add(input);
+        expect(result).toBe(6);
+    })
     
 })

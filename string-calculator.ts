@@ -1,9 +1,15 @@
 export class StringCalculator {
     static add(numbers: string): number {
-        if (!numbers.length) return 0;
-        return Number(numbers);
+        const inputNumberArray = numbers.split(',')
+        let sum: number = 0;
+        inputNumberArray.forEach((number) => {
+            if (isNaN(Number(number))) throw Error("Invalid Output");
+            sum += Number(number);
+        })
+        return sum;
     }
 }
+
 
 
 

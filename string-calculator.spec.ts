@@ -1,4 +1,4 @@
-import { describe, vitest,it, expect, test } from "vitest";
+import { describe, vitest,it, expect, test, assert } from "vitest";
 import { StringCalculator } from "./string-calculator";
 
 let input: string;
@@ -44,4 +44,14 @@ test('custom delimiter 2', () => {
     input = '//*$\n1*$2*$4';
     result = StringCalculator.add(input);
     expect(result).toBe(7);
+})
+
+test('throw exception for negative number 1', () => {
+    input = '-1\n2,-3\n2';
+    assert.throws(() => { StringCalculator.add(input)},'negative numbers not allowed -1, -3')
+})
+
+test('throw exception for negative number 2', () => {
+    input = '//*$\n1*$2*$-4';
+    assert.throws(() => { StringCalculator.add(input)},'negative numbers not allowed -4')
 })

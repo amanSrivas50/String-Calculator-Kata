@@ -15,10 +15,18 @@ export class StringCalculator {
         }
         const inputNumberArray = numbers.split(delimiter)
         let sum: number = 0;
+        let negativeNumbers:string =''; //to store negative numbers if present
         inputNumberArray.forEach((number) => {
-            if (isNaN(Number(number))) throw Error("Invalid Output");
-            sum += Number(number);
+            const numberValue=Number(number)
+            if (isNaN(numberValue)) throw Error("Invalid Output");
+            else if (numberValue < 0) {
+                negativeNumbers+=numberValue+', '
+            }
+            else sum += numberValue;
         })
+        if (negativeNumbers.length > 0) {
+            throw Error("negative numbers not allowed "+negativeNumbers.slice(0,-2))
+        }
         return sum;
     }
 

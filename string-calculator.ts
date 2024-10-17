@@ -22,7 +22,7 @@ export class StringCalculator {
             else if (numberValue < 0) {
                 negativeNumbers+=numberValue+', '
             }
-            else sum += numberValue;
+            else if(numberValue<=1000) sum += numberValue;
         })
         if (negativeNumbers.length > 0) {
             throw Error("negative numbers not allowed "+negativeNumbers.slice(0,-2))

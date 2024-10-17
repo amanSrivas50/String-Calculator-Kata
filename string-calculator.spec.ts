@@ -1,4 +1,4 @@
-import { describe, vitest,it, expect, test, assert } from "vitest";
+import { expect, test, assert } from "vitest";
 import { StringCalculator } from "./string-calculator";
 
 let input: string;
@@ -54,4 +54,10 @@ test('throw exception for negative number 1', () => {
 test('throw exception for negative number 2', () => {
     input = '//*$\n1*$2*$-4';
     assert.throws(() => { StringCalculator.add(input)},'negative numbers not allowed -4')
+})
+
+test('numbers bigger than 1000 should be ignored', () => {
+    input = '2,1001';
+    result = StringCalculator.add(input);
+    expect(result).toBe(2);
 })

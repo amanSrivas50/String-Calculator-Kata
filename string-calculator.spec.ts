@@ -11,5 +11,11 @@ describe('without delimiter', () => {
         result = StringCalculator.add(input);
         expect(result).toBe(0);
     })
+
+    it('single input', () => {
+        input = '1';
+        result = StringCalculator.add(input);
+        expect(result).toBe(1);
+    })
     
 })

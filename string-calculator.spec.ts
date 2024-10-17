@@ -23,5 +23,17 @@ describe('without delimiter', () => {
         result = StringCalculator.add(input);
         expect(result).toBe(6);
     })
+
+    it('input in multiple lines 1', () => {
+        input = '1\n2,3';
+        result = StringCalculator.add(input);
+        expect(result).toBe(6);
+    })
+
+    it('input in multiple lines 2', () => {
+        input = '1\n2,3\n2';
+        result = StringCalculator.add(input);
+        expect(result).toBe(8);
+    })
     
 })
